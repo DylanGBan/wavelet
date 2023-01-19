@@ -33,11 +33,15 @@ class Handler implements URLHandler {
 
         if(url.getPath().contains("/search")){
 
+        int counter = 0;
+
         String[] temp2 = url.getQuery().split("=");
 
         if(temp2[0].equals("w")){
     
         for(int i = 0; i < stringList.size(); i++){
+
+        counter++;
 
         if(stringList.get(i).contains(temp2[1])){
 
@@ -49,7 +53,7 @@ class Handler implements URLHandler {
 
         }
 
-        if(searchString.isEmpty()){
+        if(counter == 0){
 
             return "Search returned empty!";
     
